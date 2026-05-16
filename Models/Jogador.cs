@@ -19,4 +19,6 @@ namespace CopaHAS.Models
         
         public statusJogador Status { get; set; }
     }
+
+    // teste
 }

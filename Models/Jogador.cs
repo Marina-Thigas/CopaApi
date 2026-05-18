@@ -15,8 +15,10 @@ namespace CopaHAS.Models
 
         public string Posicao { get; set; } = string.Empty;
 
-        public int SelecaoId { get; set; }
+        public int SelecaoId { get; set; } //FK
         
         public statusJogador Status { get; set; }
+
+        public Selecao SelecaoIdNavegacao { get; set; } // Navegacao (N:1)
     }
 }

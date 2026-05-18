@@ -11,5 +11,7 @@ namespace CopaHAS.Models
         public string Nome { get; set; }
         public string Cidade { get; set; }
         public int Capacidade { get; set; }
+        //1:N
+        public List<Jogo> Jogos { get; set; } = new List<Jogo>();
     }
 }

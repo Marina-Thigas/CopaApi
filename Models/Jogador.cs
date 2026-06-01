@@ -21,6 +21,4 @@ namespace CopaHAS.Models
 
         public Selecao SelecaoIdNavegacao { get; set; } // Navegacao (N:1)
     }
-
-    // teste
 }

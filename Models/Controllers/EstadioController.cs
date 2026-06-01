@@ -30,7 +30,7 @@ namespace CopaHAS.Models.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest(ex.Message + "-" + ex.InnerException);
+                return BadRequest(ex.Message + " - " + ex.InnerException);
             }
         }
 

@@ -10,7 +10,7 @@ namespace CopaHAS.Models
         public int Id { get; set; }
         public DateTime DataHora { get; set; }
         public int EstadioId { get; set; } //FK
-        public Estadio EstadioIdNavegacao { get; set; }
+        public Estadio? EstadioIdNavegacao { get; set; }
 
         //N:N
         public List<JogoSelecao> JogoSelecoes { get; set; } = new List<JogoSelecao>();

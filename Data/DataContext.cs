@@ -21,7 +21,7 @@ namespace CopaHAS.Data
         public DbSet<Selecao> TB_SELECOES {get; set; } 
         public DbSet<Tecnico> TB_TECNICOS {get; set; } 
         public DbSet<Jogo> TB_JOGOS {get; set; } 
-        public DbSet<JogoSelecao> TB_JOGO_SELECOES {get; set; } 
+        public DbSet<JogoSelecao> TB_JOGOS_SELECOES {get; set; } 
  
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         { 
@@ -30,12 +30,15 @@ namespace CopaHAS.Data
             modelBuilder.Entity<Selecao>().ToTable("TB_SELECOES"); 
             modelBuilder.Entity<Tecnico>().ToTable("TB_TECNICOS"); 
             modelBuilder.Entity<Jogo>().ToTable("TB_JOGOS"); 
-            modelBuilder.Entity<JogoSelecao>().ToTable("TB_JOGO_SELECOES"); 
+            modelBuilder.Entity<JogoSelecao>().ToTable("TB_JOGOS_SELECOES"); 
  
             modelBuilder.Entity<Selecao>(entity => 
             { 
                 entity.HasKey(entity => entity.Id); 
                 entity.Property(e => e.Pais) 
+                    .IsRequired() 
+                    .HasMaxLength(100);  
+                entity.Property(e => e.Nome) 
                     .IsRequired() 
                     .HasMaxLength(100);  
             }); 
@@ -80,6 +83,7 @@ namespace CopaHAS.Data
                       .HasMaxLength(150); 
                 entity.Property(e => e.Cidade) 
                       .HasMaxLength(100); 
+                entity.Property(e => e.Capacidade);
             }); 
              
             // JOGO (1:N com Estadio)             
@@ -107,6 +111,9 @@ namespace CopaHAS.Data
                 entity.HasOne(d => d.SelecaoIdNavegacao) 
                     .WithMany(p => p.JogoSelecoes) 
                     .HasForeignKey(d => d.SelecaoId); 
+                entity.Property(e => e.Gols);       
+                entity.Property(e => e.GolsProrrogacao);       
+                entity.Property(e => e.GolsDecisaoPenaltis);       
             }); 
  
             modelBuilder.Entity<Jogador>().HasData 
@@ -131,8 +138,8 @@ namespace CopaHAS.Data
                 new Estadio(){Id = 3, Nome = "BLU", Capacidade = 20000, Cidade = "Belo Horizonte"}, 
                 new Estadio(){Id = 4, Nome = "BLI", Capacidade = 20000, Cidade = "Campos de Jordao"}, 
                 new Estadio(){Id = 5, Nome = "CARA", Capacidade = 20000, Cidade = "Porto Alegre"}, 
-                new Estadio(){Id = 6, Nome = "AI", Capacidade = 20000, Cidade = "Uberlandia"}, 
-                new Estadio(){Id = 7, Nome = "POR", Capacidade = 20000, Cidade = "Natal"} 
+                new Estadio(){Id = 6, Nome = "POR", Capacidade = 20000, Cidade = "Uberlandia"}, 
+                new Estadio(){Id = 7, Nome = "RA", Capacidade = 20000, Cidade = "Natal"} 
             ); 
         } 
  

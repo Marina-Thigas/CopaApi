@@ -9,11 +9,11 @@ namespace CopaHAS.Models
     {
         public int JogoId { get; set; }
         public int SelecaoId { get; set; }
-        public int Gols { get; set; }
-        public int GolsProrrogacao { get; set; }
-        public int GolsDecisaoPenaltis { get; set; }
-        public Jogo JogoIdNavegacao { get; set; }
+        public int? Gols { get; set; }
+        public int? GolsProrrogacao { get; set; }
+        public int? GolsDecisaoPenaltis { get; set; }
+        public Jogo? JogoIdNavegacao { get; set; }
         
-        public Selecao SelecaoIdNavegacao { get; set; }
+        public Selecao? SelecaoIdNavegacao { get; set; }
     }
 }

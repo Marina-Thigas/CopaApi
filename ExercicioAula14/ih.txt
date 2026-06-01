@@ -1,0 +1,1 @@
+Não conseguimos fazer o get ObterTabela funcionar
